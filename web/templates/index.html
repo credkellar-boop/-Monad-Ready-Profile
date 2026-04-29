@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MonadReady Dashboard</title>
+    <style>
+        body { font-family: Arial; background:#0f172a; color:white; padding:20px; }
+        .card { background:#1e293b; padding:15px; margin:10px 0; border-radius:10px; }
+        .issue { color:#f87171; }
+    </style>
+</head>
+<body>
+
+<h1>🔐 MonadReady Security Dashboard</h1>
+
+<p><strong>Files Flagged:</strong> {{ data.files_flagged }}</p>
+
+{% for item in data.findings %}
+<div class="card">
+    <h3>{{ item.file }}</h3>
+    <ul>
+        {% for issue in item.issues %}
+        <li class="issue">
+            {{ issue.type }} ({{ issue.count }})
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+{% endfor %}
+
+</body>
+</html>
