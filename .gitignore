@@ -1,0 +1,4 @@
+__pycache__/
+*.pyc
+scan_report.json
+.env
