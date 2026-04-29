@@ -1,16 +1,9 @@
-# Web Framework (For the dashboard/API)
 flask==3.0.0
 requests==2.31.0
-
-# Security & Secret Detection
 python-dotenv==1.0.0
 colorama==0.4.6
-
-# Crypto & Wallet Analysis
 eth-account==0.11.0
 web3==6.15.1
 base58==2.1.1
 cryptography==42.0.5
-
-# High-Frequency Infrastructure (for Monad integration)
 aiohttp==3.9.3
