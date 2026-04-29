@@ -1,53 +1,54 @@
+# 🔐 MonadReady Scanner
+
 ![License](https://img.shields.io/badge/license-MIT-blue)
 ![Python](https://img.shields.io/badge/python-3.10+-green)
 ![Status](https://img.shields.io/badge/status-active-success)
-# SentinelScan 🔐
-Enterprise Security & DLP Scanner (Opt-In)
 
-SentinelScan is a lightweight, compliance-focused security auditing tool designed to help organizations detect potential exposure of sensitive data such as private keys, API tokens, and crypto wallet artifacts—without collecting or storing the sensitive data itself.
+**Opt-in enterprise security scanner for detecting exposed secrets, crypto wallet risks, and sensitive data patterns — with compliance-safe, metadata-only logging.**
 
 ---
 
-## 🚀 Features
+## 🚀 Why MonadReady?
 
-- 🔍 **Endpoint Security Auditing (Opt-In)**
-  - Scans authorized directories for potential sensitive data exposure
+Modern teams accidentally expose sensitive data every day:
 
-- 🛡️ **Data Loss Prevention (DLP)**
-  - Detects patterns like:
-    - API keys
-    - Private keys
-    - Crypto wallet addresses
-    - Mnemonic seed phrases
+- API keys pushed to GitHub  
+- Private keys stored in local files  
+- Crypto wallet artifacts left unprotected  
 
-- 💰 **Crypto Wallet Hygiene Checks**
-  - Flags:
-    - Unapproved wallet references
-    - Suspicious filenames (e.g., containing "key", "private")
-
-- 📊 **Compliance Logging**
-  - Stores **metadata only**:
-    - File path
-    - Risk type
-    - Match count
-  - ❌ Never stores raw sensitive data
+**MonadReady helps detect these risks early — without storing or exposing sensitive content.**
 
 ---
 
-## ⚠️ Important Notice
+## 🛡️ Features
 
-This tool is intended for:
-- Authorized corporate environments
-- Security auditing with **explicit user/admin consent**
+### 🔍 Endpoint Security Auditing (Opt-In)
+Scan authorized directories for:
+- Exposed secrets
+- Unencrypted sensitive files
+- Risky configurations
 
-**Do NOT use this tool on systems you do not own or have permission to scan.**
+### 🧠 Data Loss Prevention (DLP)
+Detects:
+- API keys (AWS, generic)
+- Private keys (hex)
+- Crypto wallet addresses
+- Mnemonic seed phrases
+
+### 💰 Crypto Wallet Hygiene Checks
+- Flags unapproved wallet references  
+- Detects suspicious filenames (`private`, `key`, `seed`)  
+
+### 📊 Compliance Logging
+- ✅ Stores metadata only  
+- ❌ Never stores sensitive data  
+- 🔐 Hash-based detection samples  
 
 ---
 
-## 🧰 Installation
+## ⚙️ Installation
 
 ```bash
-git clone https://github.com/yourusername/sentinelscan.git
-cd sentinelscan
-python3 enterprise_security_scanner.py
-Opt-in enterprise security scanner for detecting exposed secrets, crypto wallet risks, and sensitive data patterns with compliance-safe, metadata-only logging.
+git clone https://github.com/YOUR_USERNAME/monadready-scanner.git
+cd monadready-scanner
+pip install -r requirements.txt
