@@ -1,36 +1,38 @@
 import requests
-import re
+import os
 
 GITHUB_API = "https://api.github.com/search/code"
 
-PATTERN = r"AKIA[0-9A-Z]{16}"  # AWS key example
-
-def search_github(query, token=None):
+def search_code(query, token=None):
     headers = {}
     if token:
         headers["Authorization"] = f"token {token}"
 
-    params = {"q": query}
+    params = {
+        "q": query,
+        "per_page": 10
+    }
 
-    response = requests.get(GITHUB_API, headers=headers, params=params)
-    return response.json()
+    r = requests.get(GITHUB_API, headers=headers, params=params)
 
-def scan_results(results):
-    findings = []
+    if r.status_code != 200:
+        print("Error:", r.json())
+        return []
 
-    for item in results.get("items", []):
-        url = item["html_url"]
-        findings.append(url)
+    return r.json().get("items", [])
 
-    return findings
+
+def main():
+    token = os.getenv("GITHUB_TOKEN")  # optional
+    query = input("Search GitHub for: ")
+
+    results = search_code(query, token)
+
+    print("\nPotential exposures:\n")
+
+    for item in results:
+        print(item["html_url"])
 
 
 if __name__ == "__main__":
-    query = "AKIA"
-    results = search_github(query)
-
-    findings = scan_results(results)
-
-    print("Potential exposed keys found in:")
-    for f in findings:
-        print(f)
+    main().
