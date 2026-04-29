@@ -1,0 +1,18 @@
+name: MonadReady Scan Check
+
+on: [push]
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@v3
+
+    - name: Run scanner
+      run: |
+        python3 monadready_scanner.py <<EOF
+yes
+.
+EOF
